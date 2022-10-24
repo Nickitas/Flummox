@@ -1,0 +1,23 @@
+
+.BtnSm {
+    padding: 0.78125em 1.9375em;
+    background-color: transparent;
+    backdrop-filter: blur(4px);
+    border: 1.5px solid var(--accent-color);
+    border-radius: 50px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 1.3888;
+    color: var(--accent-color);
+    user-select: none;
+    cursor: pointer;
+    transition: all .4s ease-out;
+
+    &:hover {
+        box-shadow: inset 1px 1px 15px #2d74f981;
+    }
+
+    &:focus, &:focus-visible {
+        box-shadow: inset 1px 1px 15px #2d74f981;
+    }
+}

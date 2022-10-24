@@ -1,0 +1,39 @@
+
+.theme_btn {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    padding: 1.25em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-color);
+    border-radius: 25px;
+    line-height: 1.3888;
+    color: #fff;
+    user-select: none;
+
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+
+    svg {
+        animation: swing 7s 0.3s infinite;
+    }
+
+    &:hover {
+       transform: translateY(-3px);
+    }
+}
+
+
+@keyframes swing {
+    0% { transform: rotate(5deg); }
+    12.5% { transform: rotate(-10deg); }
+    25% { transform: rotate(10deg); }
+    37.5% { transform: rotate(-15deg); }
+    50% { transform: rotate(23deg); }
+    62.5% { transform: rotate(-23deg); }
+    75% { transform: rotate(15deg); }
+    87.5% { transform: rotate(-10deg); }
+    100% { transform: rotate(5deg); }
+}

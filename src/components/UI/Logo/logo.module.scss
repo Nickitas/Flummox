@@ -1,0 +1,35 @@
+@import '../../../assets/mixins/responsive_font.scss';
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    user-select: none;
+
+    img {
+        width: 36px;
+        height: 36px;
+        transition: all .4s ease-in-out;
+    }
+
+    h6 {
+        margin-left: 14px;
+        font-style: 700;
+        @include responsive_font(18, 16);
+        line-height: 1;
+
+        @media (max-width:512px) {
+            font-size: 16px;
+        }
+    }
+    
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+
+    &:hover {
+        opacity: .6;
+        img {
+            transform: scale(1.1);
+        }
+    }
+}

@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+@import './assets/reset.scss';
+@import './assets/mixins/responsive_font.scss';
+
+
+$font-family: 'Nunito', sans-serif;
+
+:root[data-them='true'] {
+    --accent-color: #2D76F9;
+    --additional-color: #EEF4FF;
+    --bg-color: #fff;
+    --text-color: #212121;
+    --ex-text-color: #747474;
+    --hero-bg: no-repeat url(../public/hero_img.png) right top;
+}
+  
+:root[data-them='false'] {
+    --accent-color: #005BFF;
+    --additional-color: #335696;
+    --bg-color: #061C45;
+    --text-color: #fff;
+    --ex-text-color: #ffffff82;
+    --hero-bg: no-repeat url(../public/hero_img_dark.png) right top;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --accent-color: #005BFF;
+        --additional-color: #335696;
+        --bg-color: #061C45;
+        --text-color: #fff;
+        --ex-text-color: rgba(255, 255, 255, 0.508);
+        --hero-bg: no-repeat url(../public/hero_img_dark.png) right top;
+    }
+}
+
+html {
+    color-scheme: light dark;
+    font-family: $font-family;
+    color: var(--text-color);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
+    min-width: 320px;
+    background-color: var(--bg-color);
+}
+  
+#root {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 3760px;
+    background: var(--hero-bg);
+    overflow-x: hidden;
+
+    @media (max-width:825px) {
+        background: var(--bg-color);
+    }
+
+    div.App {
+        height: 100%;
+    }
+}
+
+
+main {
+    @media (max-width:826px) {
+        margin-top: 350px;
+    }
+}
+
+main section {
+    margin-bottom: -100px;
+    padding-bottom: 200px;
+
+    @media (max-width:825px) {
+        margin-bottom: -70px;
+        padding-bottom: 140px;
+    }
+}
+
+.container {
+    margin: 0 auto;
+    padding: 0 6.944vw;
+}
+
+
+
+h1.main_title {
+    font-weight: 600;
+    @include responsive_font(56, 36);
+    line-height: 1.3281;
+}
+
+h2.title {
+    font-weight: 600;
+    @include responsive_font(36, 24);
+    line-height: 1.8055;
+
+    b {
+        color: var(--accent-color);
+    }
+}
+
+h3.subtitle {
+    font-weight: 700;
+    @include responsive_font(24, 20);
+    line-height: 1.375;
+}
+
+h4.headline {
+    font-weight: 600;
+    @include responsive_font(18, 16);
+    line-height: 1.3888;
+}
+
+p.text {
+    font-weight: 400;
+    @include responsive_font(18, 16);
+    line-height: 2;
+    color: var(--ex-text-color);
+}
+
+
+table {
+    margin: 0 auto;
+    width: 100%;
+}
+
+thead tr, tbody tr {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(auto, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+}
+
+tbody tr {
+    margin-top: 6px;
+}
+
+th, tr {
+    margin: 0 auto;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.245);
+    border-radius: 25px;
+
+    &.good {
+        background-color: rgba(52, 142, 0, 0.245);
+    }
+    &.bad {
+        background-color: rgba(142, 0, 0, 0.245);
+    }
+    &.lost {
+        background-color: rgba(0, 0, 0, 0.245);
+    }
+}
+
+thead tr {
+    background-color: rgba(255, 255, 255, 0);
+}
+
+th {
+    min-width: 160px;
+}
+
+
+a {
+    font-weight: 400;
+    @include responsive_font(15, 12);
+    line-height: 1.3888;
+    color: var(--text-color);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all .2s ease;
+  
+    &:hover {
+        font-weight: 700;
+        color: var(--accent-color);
+    }
+}

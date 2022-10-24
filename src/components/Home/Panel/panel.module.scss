@@ -1,0 +1,68 @@
+@import '../../../assets/mixins/responsive_font.scss';
+
+
+.panel {
+    padding: 15px 0;
+    background-color: var(--bg-color);
+
+    .row {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        max-width: 1920px;
+
+        @media (max-width:677px) {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+    }
+
+    .list {
+        margin: 0 0 0 80px;
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 55%;
+        overflow-x: auto;
+
+        @media (max-width:1201px) {
+            width: 100%;
+        }
+        @media (max-width:677px) {
+            margin: 0;
+            padding-top: 15px;
+            max-width: 100%;
+            width: 100%;
+        }
+
+        .item {
+            padding: 3px 6.5px;
+            border: 2px solid var(--additional-color);
+            border-radius: 8px;
+            background-color: var(--bg-color);
+            @include responsive_font(18, 12);
+            font-weight: 700;
+            white-space: nowrap;
+            user-select: none;
+
+            & ~ .item {
+                margin-left: 40px
+            }
+
+            cursor: pointer;
+            transition: all .2s ease-in;
+
+            &:hover {
+                transform: translateY(-2px);
+                border-radius: 10px;
+                color: var(--accent-color);
+            }
+
+            &.active {
+                color: var(--accent-color);
+            }
+        }
+    }
+}

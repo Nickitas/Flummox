@@ -1,0 +1,25 @@
+@import '../../assets/mixins/responsive_font.scss';
+
+
+.home {
+    padding-bottom: 45px;
+    width: 100%;
+    background-color: var(--bg-color);
+
+
+    h2 {
+        margin: 30px 0 20px;
+    }
+
+    .col {
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 1920px;
+    }
+
+    .content {
+        width: 100%;
+    }
+}

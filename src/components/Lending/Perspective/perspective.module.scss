@@ -1,0 +1,105 @@
+@import '../../../assets/mixins/responsive_font.scss';
+
+
+.perspective {
+    margin-left: auto;
+    margin-right: auto;
+
+    .col {
+        margin:  0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 1920px; 
+    }
+
+    h2 { margin-bottom: 40px; }
+
+    .accordion {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .section {
+            background-color: var(--additional-color);
+            border-radius: 20px;
+            overflow: hidden;
+
+            & ~ .section {
+                margin-top: 15px;
+            }
+
+            .wrap {
+                padding: 24px 47px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                user-select: none;
+                transition: all .32s ease-in;
+                cursor: pointer;
+
+                @media (max-width:827px) {
+                    padding: 20px 15px;
+                }
+
+                .icon {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: var(--accent-color);
+                    transition: all .32s ease-in;
+                }
+                .iconRot {
+                    color: var(--accent-color);
+                    transition: all .2s ease-out;
+                    transform: rotate(180deg);
+                }
+
+                @media (max-width:827px) {
+                    .icon svg, .iconRot svg {
+                        width: 22px;
+                        height: 22px;
+                        path {
+                            stroke-width: 6px;
+                        }
+                    } 
+                }
+
+                &:hover {
+                    background-color: var(--accent-color);
+                    color: #fff;
+                    border-radius: 20px;
+
+                    .icon, .iconRot { color: #fff; }
+                }
+            }
+
+            .dropdown {
+                margin: 0 47px;
+                padding: 0;
+                height: 0;
+                opacity: 0;
+                transition: all .12s ease-out;
+
+                &.open {
+                    padding: 24px 0 40px;
+                    height: auto;
+                    opacity: 1;
+                    border-top: 1px solid rgba(0, 0, 0, 0.4);
+                }
+
+                p { color: var(--text-color); }
+
+                @media (max-width:827px) {
+                    margin: 0 15px;
+                    &.open {
+                        padding: 20px 0;
+                    }
+                }
+            }
+        }
+    }
+}

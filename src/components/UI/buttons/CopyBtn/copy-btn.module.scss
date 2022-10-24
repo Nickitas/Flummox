@@ -1,0 +1,22 @@
+
+.copyBtn {
+    padding: 31px 38px;
+    max-width: 120px;
+    min-width: 79px;
+    border: none;
+    background: var(--bg-color);
+    border-radius: 1500px;
+    color: #105EE9;
+
+    cursor: pointer;
+    transition: all .3s ease-out;
+
+    &:hover, &:focus, &:focus-visible {
+        background: var(--accent-color);
+        color: var(--bg-color);
+    }
+
+    @media (max-width:999px) {
+        padding: 2.153vw 2.639vw;
+    }
+}

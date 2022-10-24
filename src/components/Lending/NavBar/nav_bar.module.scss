@@ -1,0 +1,152 @@
+@import '../../../assets/mixins/responsive_font.scss';
+
+
+.nav_bar {
+    margin: 0 auto;
+    padding: 15px 0;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    user-select: none;
+
+    .row {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1920px;
+    }
+
+    .wrapp {
+        margin-left: -10px;
+        padding: 10px;
+        display: flex;
+        width: 45%;
+        max-width: 500px;
+        min-width: 492px;
+        background: rgba(255, 255, 255, 0.125);
+        backdrop-filter: blur(6px);
+        border-radius: 25px;
+    }
+}
+
+.list {
+    margin: 0 91px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 300px;
+
+    .item {
+        &:first-child {
+            min-width: 70px;
+        }
+        &:nth-child(2) {
+            min-width: 120px;
+        }
+        &:last-child {
+            min-width: 53px;
+        }
+        & ~ .item {
+            margin-left: 30px;
+        }
+    }
+}
+
+
+
+.menu_btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    cursor: pointer;
+    transition: all .4s ease-in-out;
+    &:hover {
+        opacity: .8;
+    }
+}
+
+.dropdown {
+    display: none;
+    position: fixed;
+    top: 89px;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateX(100%);
+
+    padding: 20px 0 0;
+    width: 100%;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid #0d0d0d23;
+
+    > div {
+        width: 100%;
+    }
+
+    .col {
+        display: flex;
+        flex-direction: column;
+    }
+
+    a {
+        padding: 10px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 1.35;
+        color: var(--text-color);
+        cursor: pointer;
+        transition: all .3s ease;
+        ~ a {
+            padding-top: 10px;
+            border-top: 1px solid #0d0d0d23;
+        }
+        &:hover {
+            font-weight: 700;
+            opacity: .8;
+        }
+    }
+
+    transition: all .4s ease;
+
+    &.open {
+        transition: all .25s ease-in;
+        opacity: 1;
+        transform: translateX(0%);
+    }    
+}
+
+
+@media (max-width:880px) {
+    .nav_bar {
+        padding: 0;
+        background-color: var(--bg-color);
+
+        .wrapp {
+            width: 100%;
+            min-width: 50px;
+            backdrop-filter: blur(0px);
+            background-color: transparent;
+        }
+
+        button {
+            display: none;
+        }
+    }
+
+    .list {
+        display: none;
+    }
+
+    .menu_btn,
+    .dropdown {
+        top: 45px;
+        display: flex;
+    }
+}

@@ -1,0 +1,202 @@
+@import '../../../assets/mixins/responsive_font.scss';
+
+
+.header {
+    margin: 106px 0 100px;
+    padding: 125px 0;
+    height: 85vh;
+
+    .row {
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1920px;
+    }
+
+    .blok {
+        position: relative;
+        width: 50%;
+    }
+
+    .short {
+        padding: 13px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: var(--bg-color);
+        box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.1);
+        border-radius: 25px;
+    
+        .text, .acc {
+            font-weight: 500;
+            @include responsive_font(24, 12);
+            line-height: 1.375;
+            color: var(--accent-color);
+        }
+        .acc {
+            padding: 9px 28px;
+            background: var(--accent-color);
+            border-radius: 15px;
+            color: var(--bg-color);
+        }
+
+        .text + .acc,
+        .acc + .text {
+            margin-left: 20px;
+        }
+    }
+    
+    .plaza {
+        padding: 21px 23px;
+        border-radius: 25px;
+        background: var(--bg-color);
+        box-shadow: 0px 16px 40px rgba(112, 144, 176, 0.1);
+        
+        p {
+            display: flex;
+            align-items: center;
+    
+            svg {
+                margin-right: 10px;
+            }
+        }
+        
+        summary {
+            font-weight: 600;
+            font-size: 48px;
+            line-height: 1.3541;
+            letter-spacing: 0.05em;
+            color: var(--accent-color);
+            @media (max-width:512px) {
+                font-size: 32px;
+            }
+        }
+    }
+}
+
+
+.blok h1, 
+.blok p {
+    max-width: 533px;
+}
+
+.blok h1 + p {
+    margin-top: 40px;
+}
+
+.blok button {
+    margin-top: 50px;
+}
+
+@media (max-width:512px) {
+    .blok h1 + p {
+        margin-top: 20px;
+    }
+    .blok button {
+        margin-top: 30px;
+    }
+}
+
+
+img.phone {
+    position: absolute;
+    top: -10%;
+    right: 0;
+    user-select: none;
+    animation: ripple 8s infinite;
+}
+.short {
+    position: absolute;
+    top: 5%;
+    left: 55%;
+    animation: swing 7s infinite; 
+
+    & ~ .short {
+        top: 40%;
+        left: calc(65vw - 100%);
+        animation: swing 8s infinite;
+    }
+}
+.plaza {
+    position: absolute;
+    left: 45%;
+    bottom: 5%;
+    animation: swing 10s infinite;
+}
+
+
+
+
+
+@media (max-width:825px) {
+    .header {
+        margin: 60px 0 0px;
+        padding: 5.903vw 0;
+    
+        .row {
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .blok {
+            position: block;
+            width: 100%;
+
+            &:last-child {
+                margin-top: 50px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 500px;
+                background: no-repeat url(../../../public/hero_img.png);
+                border-radius: 25px;
+                overflow: hidden;
+
+                img.phone {
+                    position: static;
+                    transform: translate(0);
+                    width: 166.74px;
+                    height: 340px;
+                }
+            }
+        }
+
+        .short {
+            top: 8%;
+            left: 10%;
+        
+            & ~ .short {
+                top: 45%;
+                left: 45vw;
+            }
+        }
+        .plaza {
+            left: 10%;
+            bottom: 5%;
+
+            summary {
+                margin-top: 6px;
+                padding-left: 25px;
+            }
+        }
+
+    }
+}
+
+
+
+
+@keyframes swing {
+    20% { transform: translate(15px, 5px); } 
+    40% { transform: translate(-15px, -5); } 
+    60% { transform: translate(5px, 5px); } 
+    80% { transform: translate(-5px, -5px); } 
+    100% { transform: translate(0, 0); } 
+}
+
+@keyframes ripple {
+    0% { transform: scale(1); } 
+    50% { transform: scale(0.9); } 
+    100% { transform: scale(1); } 
+}
